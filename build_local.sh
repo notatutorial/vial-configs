@@ -23,10 +23,6 @@ else
 fi
 
 # Copy files to QMK repository
-if [ ! -L "vial-qmk/keyboards/crkbd/keymaps/notatutorial" ]; then
-    echo "Symlink keymaps in VIAL QMK repository"
-    ln --symbolic --force --no-dereference $(pwd)/crkbd/notatutorial vial-qmk/keyboards/crkbd/keymaps/
-fi
 if [ ! -L "vial-qmk/keyboards/ferris/sweep/keymaps/notatutorial" ]; then
     echo "Symlink keymaps in VIAL QMK repository"
     ln --symbolic --force --no-dereference $(pwd)/ferris/sweep/notatutorial vial-qmk/keyboards/ferris/sweep/keymaps/
@@ -35,10 +31,8 @@ fi
 # Build firmware
 echo "Building firmware..."
 cd vial-qmk
-qmk compile -kb crkbd/r2g -km notatutorial
-qmk compile -kb crkbd/rev1 -km notatutorial
-qmk compile -kb crkbd/rev1 -km notatutorial -e CONVERT_TO=kb2040
 qmk compile -kb ferris/sweep -km notatutorial
+qmk compile -kb ferris/sweep -km notatutorial -e CONVERT_TO=kb2040
 cd ..
 
 # Copy firmware out of build directory

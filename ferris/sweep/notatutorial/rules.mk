@@ -1,6 +1,7 @@
 # Bootloader selection
 BOOTLOADER = atmel-dfu
 
+SPLIT_KEYBOARD         = yes
 MOUSEKEY_ENABLE        = yes
 VIA_ENABLE             = yes
 VIAL_ENABLE            = yes

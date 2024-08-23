@@ -62,7 +62,7 @@
         ],
         [
             [
-                "KC_NO",
+                "KC_ESCAPE",
                 "KC_NO",
                 "LCTL(KC_PGUP)",
                 "LCTL(KC_PGDOWN)",
@@ -76,10 +76,10 @@
                 "OSM(MOD_HYPR)"
             ],
             [
-                "KC_NO",
+                "OSM(MOD_LGUI)",
                 "OSM(MOD_RALT)",
-                "KC_NO",
-                "KC_NO",
+                "OSM(MOD_LCTL)",
+                "OSM(MOD_LSFT)",
                 "KC_NO"
             ],
             [
@@ -152,7 +152,7 @@
                 "KC_LBRACKET",
                 "KC_RBRACKET",
                 "KC_NO",
-                "KC_NO"
+                "KC_ESCAPE"
             ],
             [
                 "OSM(MOD_HYPR)",
@@ -178,14 +178,14 @@
         ],
         [
             [
-                "OSM(MOD_LCTL|MOD_LALT)",
+                "KC_ESCAPE",
                 "KC_F9",
                 "KC_F8",
                 "KC_F7",
                 "KC_F12"
             ],
             [
-                "KC_ESCAPE",
+                "OSM(MOD_LCTL|MOD_LALT)",
                 "KC_F6",
                 "KC_F5",
                 "KC_F4",
@@ -252,8 +252,8 @@
             [
                 "KC_NO",
                 "KC_NO",
-                "KC_WH_L",
-                "KC_WH_R",
+                "LCTL(KC_WH_U)",
+                "LCTL(KC_WH_D)",
                 "KC_WH_D"
             ],
             [

@@ -1,0 +1,48 @@
+name: Not a Tutorial Keyboards
+
+on:
+  push:
+    paths:
+      - "ferris/**"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    container: qmkfm/qmk_cli
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          path: main
+
+      - name: Checkout VIAL QMK repository
+        uses: actions/checkout@v3
+        with:
+          repository: vial-kb/vial-qmk
+          submodules: recursive
+          path: vial-qmk
+
+      - name: Copy keymaps to relevant directories
+        run: |
+          cp --recursive main/ferris/sweep/notatutorial vial-qmk/keyboards/ferris/sweep/keymaps/
+
+      - name: Verify Vial UID is unique
+        run: |
+          cd vial-qmk
+          python3 util/ci_vial_verify_uid.py
+
+      - name: Build firmware
+        run: |
+          cd vial-qmk
+          qmk compile -kb ferris/sweep -km notatutorial
+          qmk compile -kb ferris/sweep -km notatutorial -e CONVERT_TO=kb2040
+
+      - name: Save firmware files
+        uses: actions/upload-artifact@v3
+        with:
+          name: firmware-files
+          path: |
+            ./vial-qmk/.build/*.hex
+            ./vial-qmk/.build/*.uf2
